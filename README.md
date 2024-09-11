@@ -1,1 +1,1 @@
-# gui-hw1
+Everything is pushed to the gh-pages branch
