@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Adding new font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap" rel="stylesheet">
+    <!-- Title -->
+    <title>Introduction to Docker by Alireza Jahanban</title>
+  </head>
+  <body>
+        <!-- 
+        File: index.html
+        GUI Assignment: Homework 1 - Creating Your First Web Page
+        Content: The page briefly introduces Docker, its use cases, and provides some links and images to further clarify this technology
+        Alireza Jahanban, UMass Lowell Computer Science, Alireza_Jahanban@student.uml.edu
+        Copyright (c) 2024 by Jahanban. All rights reserved. This code is free to use by anyone for business or educational purposes with credit to the author.
+        Written on Sep 10, 2024. 
+        -->
+
+        <header>
+            <h1>What is Docker&reg;?</h1>
+        </header>
+
+        <!-- Content Section -->
+        <section>
+            <h4>About Docker</h4>
+            <p>Docker is a powerful platform that has revolutionized software development and deployment by providing a consistent and efficient way to build, ship, and run applications. At its core, Docker uses containerization technology to package an application and its dependencies into a standardized unit called a container. This container can be deployed across different environments, such as development, testing, and production, without the common issues of inconsistency and environment mismatch. Containers are lightweight and portable, which means they can run on virtually any system that supports Docker, regardless of the underlying infrastructure. This portability is achieved by Docker's use of container images that encapsulate the application code, libraries, and runtime, ensuring that the application behaves the same way regardless of where it is deployed.</p>
+            <p>The Docker architecture consists of several key components that work together to provide a robust containerization environment. At the heart of Docker is the Docker Engine, which is responsible for creating, running, and managing containers. The Docker Engine can run on various operating systems and is composed of a server, a REST API, and a command-line interface (CLI). The server is the core component that runs the Docker daemon, which handles container creation and management. Docker also relies on container images, which are stored in repositories such as Docker Hub or private registries. These images are built from Dockerfiles, which are scripts that define the configuration and installation instructions for the application and its dependencies.</p>
+            <p>In addition to its core functionalities, Docker integrates with various tools and technologies to enhance its capabilities and streamline workflows. Docker Compose, for example, allows developers to define and manage multi-container applications using a simple YAML configuration file. This tool simplifies the orchestration of complex applications that require multiple services, such as databases and web servers, by enabling them to be defined and run together as a single unit. Furthermore, Docker Swarm and Kubernetes are orchestration tools that help manage clusters of Docker containers, providing features like scaling, load balancing, and automated deployment. By leveraging these tools, organizations can achieve greater efficiency, scalability, and reliability in their application development and deployment processes, making Docker an essential tool in modern DevOps practices.</p>
+
+            <h4>Use Cases of Docker</h4>
+            <p>Docker is widely used in various scenarios, making it a versatile tool in modern software development. One common use case is in microservices architecture, where applications are broken down into smaller, independent services. Each service can be developed, tested, and deployed in its own container, allowing for better isolation and resource management. Additionally, Docker is beneficial in continuous integration and continuous deployment (CI/CD) pipelines, enabling teams to automate testing and deployment processes while ensuring consistency across different environments.</p>
+
+            <h4>Where and Why to Use Docker</h4>
+            <p>Docker is ideal for environments where consistency and scalability are critical. It is commonly used in development and production environments across cloud platforms, local machines, and orchestration tools like Kubernetes. The reasons to use Docker include its ability to simplify application deployment, enhance resource utilization, and improve collaboration among development teams. By enabling applications to run in isolated containers, Docker reduces conflicts between dependencies and allows for faster development cycles.</p>
+        </section>
+
+        <!-- Image Section -->
+        <section>
+            <h4>A Glance at Docker's Architecture</h4>
+            <div class="image-container">
+                <figure>
+                <img src="images/docker-architecture.webp" alt="Docker's Architecture">
+                <figcaption>Image source: <a href="https://docs.docker.com/get-started/docker-overview/" target="_blank">https://docs.docker.com/get-started/docker-overview/</a></figcaption>
+                </figure>
+                <!-- 
+                Image source URL: https://docs.docker.com/get-started/docker-overview/ 
+                -->
+            </div>
+        </section>
+
+        <!-- Table Section -->
+        <section>
+            <h4>Docker vs. Kubernates</h4>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>Docker</th>
+                        <th>Kubernate</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td>Purpose</td>
+                        <td>Containerization platform</td>
+                        <td>Container orchestration platform</td>
+                    </tr>
+
+                    <tr>
+                        <td>Primary Functionality</td>
+                        <td>Packaging applications in containers</td>
+                        <td>Managing and orchestrating containers</td>
+                    </tr>
+
+                    <tr>
+                        <td>Load Balancing</td>
+                        <td>Basic load balancing through Docker Swarm</td>
+                        <td>Advanced load balancing and service discovery</td>
+                    </tr>
+
+                    <tr>
+                        <td>Ecosystem</td>
+                        <td>Docker Hub for container images</td>
+                        <td>Supports various container runtimes and integrations</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Code Section -->
+        <section>
+            <h4>Sample Code</h4>
+            <p>To demonstrate the simplicity of using Docker, here’s a basic example of a Dockerfile for a Node.js application:</p>
+            
+            <pre>
+                <code>
+                # Use the official Node.js image from the Docker Hub
+                FROM node:14
+                
+                # Set the working directory
+                WORKDIR /usr/src/app
+                
+                # Copy package.json and install dependencies
+                COPY package*.json ./
+                RUN npm install
+                
+                # Copy the application code
+                COPY . .
+                
+                # Expose the application port
+                EXPOSE 3000
+                
+                # Define the command to run the application
+                CMD ["node", "app.js"]
+                </code>
+            </pre>
+
+            <p>This Dockerfile defines how to build a Docker image for a Node.js application, encapsulating all necessary dependencies and configuration.</p>
+        </section>
+
+        <!-- Link Section -->
+        <section>
+            <h2>Useful Links</h2>
+            <ul>
+                <li><a href="https://docs.docker.com/get-started/docker-overview/" target="_blank">Docker Overview</a></li>
+                <li><a href="https://aws.amazon.com/docker/" target="_blank">What is Docker?</a></li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Created by Alireza Jahanban. All rights reserved.</p>
+        </footer>
+
+	</body>
+	<!-- <script src="script.js"></script> -->
+</html>
